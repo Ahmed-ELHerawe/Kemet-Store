@@ -1,0 +1,49 @@
+@import "tailwindcss";
+::-webkit-scrollbar {
+  width: 8px; /* عرض الشريط */
+  height: 8px; /* ارتفاع الشريط للأفقي */
+}
+
+::-webkit-scrollbar-track {
+  background: #FDFBF7; /* لون المسار - نفس لون خلفية الموقع */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4AF37; /* لون المقبض - ذهبي كيميت */
+  border-radius: 20px; /* جعل الحواف دائرية */
+  border: 2px solid #FDFBF7; /* إضافة مسافة وهمية حول المقبض */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B48F2D; /* لون أغمق عند التمرير بالماوس */
+}
+
+/* 2. للمتصفحات التي تدعم الخاصية الجديدة (Firefox) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #D4AF37 #FDFBF7;
+}
+
+/* 3. تنسيق اختيار النصوص ليناسب الهوية */
+::selection {
+  background-color: #D4AF37;
+  color: #000000;
+}
+.nav-cutout {
+  --cutout-size: 80px;
+}
+
+.nav-cutout::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle var(--cutout-size) at var(--cutout-left, 50%) -10px,
+      transparent 60%,
+      rgba(10, 10, 10, 0.95) 61%
+    );
+  border-radius: 1rem;
+  pointer-events: none;
+  z-index: 1;
+}
