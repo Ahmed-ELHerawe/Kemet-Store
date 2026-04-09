@@ -27,13 +27,13 @@ const useStore = create(
 
       // 🏷 Categories
       categories: [
-        { id: 1, name: "Jewelry", titleAr: "المجوهرات الملكية", description: "Hand-crafted gold and precious stones inspired by ancient dynasties.", image: "src/assets/2.jpg", count: "42 Items" },
-        { id: 2, name: "Perfumes", titleAr: "عطور الألهة", description: "Sacred scents extracted from rare Egyptian lotus and jasmine.", image: "src/assets/3.jpg", count: "18 Items" },
-        { id: 3, name: "Linen Wear", titleAr: "أزياء الكتان", description: "Breathable, premium Egyptian linen woven for modern comfort.", image: "src/assets/4.jpg", count: "35 Items" },
-        { id: 4, name: "Footwear", titleAr: "الأحذية الفاخرة", description: "Leather sandals and footwear designed with geometric precision.", image: "src/assets/5.jpg", count: "24 Items" },
-        { id: 5, name: "Accessories", titleAr: "الإكسسوارات", description: "Belts, scarves and amulets to complete your sovereign look.", image: "src/assets/6.jpg", count: "56 Items" },
-        { id: 6, name: "Handbags", titleAr: "حقائب اليد", description: "Exquisite leather work meeting timeless structural elegance.", image: "src/assets/7.jpg", count: "12 Items" },
-        { id: 7, name: "Home Decor", titleAr: "ديكور القصر", description: "Artifacts and home accents inspired by temple aesthetics.", image: "src/assets/9.webp", count: "29 Items" },
+        { id: 1, name: "Jewelry", titleAr: "المجوهرات الملكية", description: "Hand-crafted gold and precious stones inspired by ancient dynasties.", image: "src/image/2.jpg", count: "42 Items" },
+        { id: 2, name: "Perfumes", titleAr: "عطور الألهة", description: "Sacred scents extracted from rare Egyptian lotus and jasmine.", image: "src/image/3.jpg", count: "18 Items" },
+        { id: 3, name: "Linen Wear", titleAr: "أزياء الكتان", description: "Breathable, premium Egyptian linen woven for modern comfort.", image: "src/image/4.jpg", count: "35 Items" },
+        { id: 4, name: "Footwear", titleAr: "الأحذية الفاخرة", description: "Leather sandals and footwear designed with geometric precision.", image: "src/image/5.jpg", count: "24 Items" },
+        { id: 5, name: "Accessories", titleAr: "الإكسسوارات", description: "Belts, scarves and amulets to complete your sovereign look.", image: "src/image/6.jpg", count: "56 Items" },
+        { id: 6, name: "Handbags", titleAr: "حقائب اليد", description: "Exquisite leather work meeting timeless structural elegance.", image: "src/image/7.jpg", count: "12 Items" },
+        { id: 7, name: "Home Decor", titleAr: "ديكور القصر", description: "Artifacts and home accents inspired by temple aesthetics.", image: "src/image/9.webp", count: "29 Items" },
       ],
 
       // 🌟 Best Sellers
