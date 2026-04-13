@@ -1,5 +1,4 @@
 import { Crown } from 'lucide-react';
-import useStore from "../store";
 
 export default function Footer() {
   return (

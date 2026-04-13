@@ -1,9 +1,8 @@
 // src/Pages/OrdersPage.jsx
 import React from "react";
 import { Package, Truck, Clock } from "lucide-react";
-import useStore from "../store";
+import useStore from "../../store";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../component/Navbar";
 
 export default function OrdersPage() {
   const navigate = useNavigate();
@@ -83,7 +82,9 @@ export default function OrdersPage() {
                         <Clock size={14} /> Acquired: {order.date}
                       </span>
                       <span className="flex items-center gap-2 text-[#0A0A0A] font-black underline decoration-[#D4AF37] underline-offset-8">
-                        {order.items.map((it) => it.price).join(" + ")} EGP
+                        {order.items
+                        .reduce((sum, it) => sum + it.price, 0)
+                         .toLocaleString()} EGP
                       </span>
                     </div>
                   </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import useStore from "../store";
+import useStore from "../../store";
 import { Sun, Moon } from "lucide-react"; // إذا ما عندك، ممكن تستخدم SVG أو أي أيقونة ثانية
 
 export default function ThemeToggle() {
@@ -15,7 +15,9 @@ export default function ThemeToggle() {
         bg-gray-800 text-yellow-400 dark:bg-[#D4AF37] dark:text-gray-900 shadow-lg hover:scale-110 
         transition-transform duration-300 "
     >
-      {theme === "dark" ? <Sun size={24} /> : <Moon size={24} />}
+      {theme === "dark" ? 
+      <Sun size={24} /> 
+      : <Moon size={24} />}
     </button>
   );
 }

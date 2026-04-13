@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from "react";
-import useStore from "../store";
+import useStore from "../../store";
 import { ShoppingBag, Plus, Minus, X, ShieldCheck } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -21,12 +21,6 @@ export default function CartPage() {
   const total = cartTotal + shipping;
 
   // ✅ Redirect لو فاضي
-  useEffect(() => {
-    if (cart.length === 0) {
-      const timer = setTimeout(() => navigate("/"), 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [cart, navigate]);
 
   return (
     <div className="pt-32 pb-24 bg-[#FDFBF7] min-h-screen font-sans">
@@ -88,7 +82,7 @@ export default function CartPage() {
                         Size: {item.size}
                       </p>
                       <p className="text-lg font-bold text-gray-900">
-                        {item.price} EGP
+                        {item.price.toLocaleString()} EGP
                       </p>
                     </div>
 

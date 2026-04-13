@@ -1,11 +1,24 @@
 // src/store.js
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import img2 from "./assets/2.jpg";
+import img3 from "./assets/3.jpg";
+import img4 from "./assets/4.jpg";
+import img5 from "./assets/5.jpg";
+import img6 from "./assets/6.jpg";
+import img7 from "./assets/7.jpg";
+import img9 from "./assets/9.webp";
+
+
+
 
 const useStore = create(
 
  
   persist(
+
+
+    
     (set, get) => ({
       // 🎨 Theme
       theme: "light",
@@ -27,13 +40,13 @@ const useStore = create(
 
       // 🏷 Categories
       categories: [
-        { id: 1, name: "Jewelry", titleAr: "المجوهرات الملكية", description: "Hand-crafted gold and precious stones inspired by ancient dynasties.", image: "src/image/2.jpg", count: "42 Items" },
-        { id: 2, name: "Perfumes", titleAr: "عطور الألهة", description: "Sacred scents extracted from rare Egyptian lotus and jasmine.", image: "src/image/3.jpg", count: "18 Items" },
-        { id: 3, name: "Linen Wear", titleAr: "أزياء الكتان", description: "Breathable, premium Egyptian linen woven for modern comfort.", image: "src/image/4.jpg", count: "35 Items" },
-        { id: 4, name: "Footwear", titleAr: "الأحذية الفاخرة", description: "Leather sandals and footwear designed with geometric precision.", image: "src/image/5.jpg", count: "24 Items" },
-        { id: 5, name: "Accessories", titleAr: "الإكسسوارات", description: "Belts, scarves and amulets to complete your sovereign look.", image: "src/image/6.jpg", count: "56 Items" },
-        { id: 6, name: "Handbags", titleAr: "حقائب اليد", description: "Exquisite leather work meeting timeless structural elegance.", image: "src/image/7.jpg", count: "12 Items" },
-        { id: 7, name: "Home Decor", titleAr: "ديكور القصر", description: "Artifacts and home accents inspired by temple aesthetics.", image: "src/image/9.webp", count: "29 Items" },
+        { id: 1, name: "Jewelry", titleAr: "المجوهرات الملكية", description: "Hand-crafted gold and precious stones inspired by ancient dynasties.", image:img2 , count: "42 Items" },
+        { id: 2, name: "Perfumes", titleAr: "عطور الألهة", description: "Sacred scents extracted from rare Egyptian lotus and jasmine.", image: img3, count: "18 Items" },
+        { id: 3, name: "Linen Wear", titleAr: "أزياء الكتان", description: "Breathable, premium Egyptian linen woven for modern comfort.", image: img4, count: "35 Items" },
+        { id: 4, name: "Footwear", titleAr: "الأحذية الفاخرة", description: "Leather sandals and footwear designed with geometric precision.", image: img5, count: "24 Items" },
+        { id: 5, name: "Accessories", titleAr: "الإكسسوارات", description: "Belts, scarves and amulets to complete your sovereign look.", image: img6, count: "56 Items" },
+        { id: 6, name: "Handbags", titleAr: "حقائب اليد", description: "Exquisite leather work meeting timeless structural elegance.", image: img7, count: "12 Items" },
+        { id: 7, name: "Home Decor", titleAr: "ديكور القصر", description: "Artifacts and home accents inspired by temple aesthetics.", image: img9, count: "29 Items" },
       ],
 
       // 🌟 Best Sellers
@@ -169,11 +182,70 @@ getAllProducts: () => {
         };
         set({ orders: [newOrder, ...get().orders], cartItems: [] });
       },
+
+      // ─────────────────────────────────────────────────────────────────────────────
+// أضيف السطر ده جوا الـ store.js بعد submitOrder مباشرةً:
+// ─────────────────────────────────────────────────────────────────────────────
+
+updateOrderStatus: (id, status, confirmedBy = "") =>
+  set({
+    orders: get().orders.map((o) =>
+      o.id === id
+        ? { ...o, status, confirmedBy, eta: status === "Out for Delivery" ? "Today — In Transit" : o.eta }
+        : o
+    ),
+  }),
+
+// ─────────────────────────────────────────────────────────────────────────────
+// وفي App.jsx أضيف الـ Route ده:
+// ─────────────────────────────────────────────────────────────────────────────
+
+// import StaffDashboard from "./user/Pages/StaffDashboard";
+// <Route path="/staff" element={<StaffDashboard />} />
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Default PINs لكل موظف (يقدر الأدمن يغيرهم من الـ AdminPage):
+// ─────────────────────────────────────────────────────────────────────────────
+// Mohamed Hassan  → PIN: 1111
+// Sara Abdel      → PIN: 2222
+// Karim Mostafa   → PIN: 3333
+// Nour Omar       → PIN: 4444
+// Amr Fathy       → PIN: 5555
+// Laila Rashed    → PIN: 6666
+
+
+
+      
+addProduct:    (p)  => set({ products: [...get().products, p] }),
+updateProduct: (p)  => set({ products: get().products.map(x => x.id === p.id ? p : x) }),
+deleteProduct: (id) => set({ products: get().products.filter(x => x.id !== id) }),
+
+addCategory:    (c)  => set({ categories: [...get().categories, c] }),
+updateCategory: (c)  => set({ categories: get().categories.map(x => x.id === c.id ? c : x) }),
+deleteCategory: (id) => set({ categories: get().categories.filter(x => x.id !== id) }),
+
+
+
+updateOrderStatus: (id, status, confirmedBy = "") =>
+  set({
+    orders: get().orders.map((o) =>
+      o.id === id ? { ...o, status, confirmedBy, eta: "Today — In Transit" } : o
+    ),
+  }),
+
+
     }),
+
     {
       name: "kemet-store",
-    }
+    },
+
+
+
+    
   )
+  
+  
 );
 
 export default useStore;

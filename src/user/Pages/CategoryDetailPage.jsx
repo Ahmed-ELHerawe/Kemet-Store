@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import useStore from "../store";
+import useStore from "../../store";
 import { ChevronRight } from "lucide-react";
 
 export default function CategoryDetailPage() {

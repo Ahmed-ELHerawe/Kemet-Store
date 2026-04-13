@@ -1,6 +1,6 @@
 import React from "react";
 import { ChevronRight, Sparkles } from "lucide-react";
-import useStore from "../store";
+import useStore from "../../store";
 import { useNavigate } from "react-router-dom";
 
 const BestSellers = () => {
@@ -31,6 +31,7 @@ const BestSellers = () => {
                   <img
                     src={product.image}
                     alt={product.name}
+                    onError={(e) => (e.target.src = "/fallback.jpg")}
                     className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                   />
                 </div>

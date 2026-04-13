@@ -1,7 +1,7 @@
 // src/Pages/ProductPage.jsx
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import useStore from "../store";
+import useStore from "../../store";
 import { Star, ArrowLeft, ShieldCheck, Truck, RefreshCw, ShoppingCart } from "lucide-react";
 
 export default function ProductPage() {
@@ -42,7 +42,7 @@ const similarProducts = allProducts.filter(
   };
 
   return (
-    <div className="bg-[#fdf7f7] min-h-screen">
+    <div className="  bg-[#fdf7f7] min-h-screen">
       <div className="pt-32 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <button
           onClick={() => navigate(-1)}

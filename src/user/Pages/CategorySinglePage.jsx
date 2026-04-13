@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import useStore from "../store";
+import useStore from "../../store";
 import { ShoppingCart, Star, ArrowLeft, ShieldCheck, Truck, RefreshCw } from "lucide-react";
 
 export default function CategorySinglePage({ product }) {

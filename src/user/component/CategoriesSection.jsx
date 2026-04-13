@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import useStore from "../store";
+import useStore from '../../store';
 
 export default function CategoriesSection() {
   const categories = useStore((state) => state.categories);
@@ -22,7 +22,7 @@ export default function CategoriesSection() {
           {categories.map((category) => (
             <div
               key={category.id}
-              onClick={() => navigate("/categories")} // هنا الكليك يروح على CategoriesPage
+              onClick={() => navigate(`/categories?category=${category.id}`)}// هنا الكليك يروح على CategoriesPage
               className="flex flex-col items-center gap-5 snap-center shrink-0 group cursor-pointer"
             >
               <div className="relative w-32 h-32 md:w-36 md:h-36 rounded-full p-1 border border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-all duration-500 bg-[#FDFBF7]">

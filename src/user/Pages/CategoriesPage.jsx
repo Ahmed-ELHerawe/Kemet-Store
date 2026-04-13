@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import useStore from "../store";
+import useStore from "../../store";
 
 export default function CategoriesPage() {
   const { categories } = useStore();
@@ -16,7 +16,7 @@ export default function CategoriesPage() {
   }, [categories]);
 
   return (
-    <div className="pt-32 pb-24 bg-[#0A0A0A] min-h-screen">
+    <div className=" animate-fade-in pt-32 pb-24 bg-[#0A0A0A] min-h-screen">
       <div className="max-w-7xl mx-auto px-4">
 
         {/* Header */}

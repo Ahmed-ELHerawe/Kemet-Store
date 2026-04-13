@@ -1,17 +1,20 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "./Pages/HomePage";
-import ProductPage from "./Pages/ProductPage";
-import CartPage from "./Pages/CartPage";
-import CategoriesPage from "./Pages/CategoriesPage";
-import CategoryDetailPage from "./Pages/CategoryDetailPage";
-import CheckoutPage from "./Pages/CheckoutPage";
-import OrdersPage from "./Pages/OrdersPage";
-import ConnectUs from "./Pages/ConnectUs";
-import Navbar from "./component/Navbar";
+import HomePage from "./user/Pages/HomePage";
+import ProductPage from "./user/Pages/ProductPage";
+import CartPage from "./user/Pages/CartPage";
+import CategoriesPage from "./user/Pages/CategoriesPage";
+import CategoryDetailPage from "./user/Pages/CategoryDetailPage";
+import CheckoutPage from "./user/Pages/CheckoutPage";
+import OrdersPage from "./user/Pages/OrdersPage";
+import ConnectUs from "./user/Pages/ConnectUs";
+import Navbar from "./user/component/Navbar";
 import useStore from "./store";
-import ThemeToggle from "./component/ThemeToggle";
-import CartFloatingButton from "./component/CartFloatingButton";
+import ThemeToggle from "./user/component/ThemeToggle";
+import CartFloatingButton from "./user/component/CartFloatingButton";
+import AdminPage from "./Admin/Pages/AdminPage";
+import StaffDashboard from "./Staff/Pages/StaffDashboard";
+
 
 export default function App() {
   // ✅ هنا نستدعي المتغير theme من الـ store
@@ -20,7 +23,7 @@ export default function App() {
 
   return (
     <div className={theme === "dark" ? "dark" : ""}>
-      <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-500">
+      <div className="min-h-screen bg-white dark:bg-gray text-gray-900 dark:text-white transition-colors duration-500">
         <BrowserRouter>
           <Navbar />
           <Routes>
@@ -32,7 +35,8 @@ export default function App() {
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/orders" element={<OrdersPage />} />
             <Route path="/connect" element={<ConnectUs />} />
-
+            <Route path="/admin" element={<AdminPage />} />
+            <Route path="/staff" element={<StaffDashboard />} />
           </Routes>
           <CartFloatingButton/>
           <ThemeToggle/>

@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Crown, Phone, MapPin, Star, MessageSquare, ChevronRight } from "lucide-react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import useStore from "../store"; // src/store.js
+import useStore from "../../store"; // src/store.js
 
 export default function CheckoutPage() {
   const navigate = useNavigate();

@@ -1,6 +1,5 @@
 import { Crown, ShoppingBag } from "lucide-react";
-import useStore from "../store";
-
+import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
   const galleryImages = [
@@ -9,7 +8,7 @@ export default function Hero() {
     "https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&q=80",
     "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=800&q=80",
   ];
-
+const navigate = useNavigate();
   return (
     <header className="relative h-screen flex items-center justify-center overflow-hidden bg-[#0A0A0A]">
 
@@ -52,7 +51,9 @@ export default function Hero() {
           Where Ancient Royalty Meets Modern Luxury
         </p>
 
-        <button className="group relative px-10 py-4 border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all duration-500 overflow-hidden font-bold tracking-widest uppercase text-xs">
+        <button
+        onClick={() => navigate("/categories")}
+        className="group relative px-10 py-4 border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all duration-500 overflow-hidden font-bold tracking-widest uppercase text-xs">
           <div className="absolute inset-0 bg-[#D4AF37] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
           <span className="relative z-10 flex items-center gap-3">
             EXPLORE THE DYNASTY
